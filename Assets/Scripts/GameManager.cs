@@ -53,6 +53,9 @@ public class GameManager : Singleton<GameManager>
             );
             GameObject obj = Instantiate(notePrefab, position, Quaternion.identity);
             obj.transform.parent = noteBoard.transform;
+            if (mode == "i") {
+                obj.GetComponent<Note>().isIntense = true;
+            }
             Transform renderer = obj.transform.GetChild(0);
             renderer.gameObject.GetComponent<MeshRenderer>().material = noteMaterials[note];
         }

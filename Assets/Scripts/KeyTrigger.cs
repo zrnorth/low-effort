@@ -20,6 +20,10 @@ public class KeyTrigger : MonoBehaviour
             fxOnTrigger.Play();
 
             GameObject currentlyCollidingNote = currentlyCollidingNotes.Dequeue();
+            bool isIntense = currentlyCollidingNote.GetComponent<Note>().isIntense;
+            Guy guy = Guy.Instance;
+            guy.RandomizePose();
+            guy.SetIntenseMode(isIntense);
             Destroy(currentlyCollidingNote);
         }
     }
