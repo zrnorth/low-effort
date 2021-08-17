@@ -19,6 +19,9 @@ public class GameManager : Singleton<GameManager>
     private float[] noteXPositions = { -1.8f, -0.6f, 0.6f, 1.8f };
 
     [SerializeField]
+    private float noteTimeOffset = 0.150f;
+
+    [SerializeField]
     private GameObject notePrefab;
 
     [Header("DEBUG")]
@@ -38,7 +41,7 @@ public class GameManager : Singleton<GameManager>
             string[] chartData = Regex.Split(chartLine, "\\s");
             string timeRaw = chartData[0];
             string[] timeParts = timeRaw.Split(':');
-            float time = System.Convert.ToSingle(timeParts[0]) * 60 + System.Convert.ToSingle(timeParts[1]);
+            float time = System.Convert.ToSingle(timeParts[0]) * 60 + System.Convert.ToSingle(timeParts[1]) + noteTimeOffset;
             int note = System.Convert.ToInt32(chartData[1]);
             Vector3 position = new Vector3(
                 noteXPositions[note],
@@ -50,6 +53,8 @@ public class GameManager : Singleton<GameManager>
             Transform renderer = obj.transform.GetChild(0);
             renderer.gameObject.GetComponent<MeshRenderer>().material = noteMaterials[note];
         }
+
+        AudioManager.Instance.Play();
     }
 
     // Update is called once per frame

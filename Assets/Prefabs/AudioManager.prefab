@@ -175,7 +175,7 @@ MonoBehaviour:
   badAudioChild: {fileID: 1817748041796601104}
   goodAudioChild: {fileID: 8966242763667083975}
   activeTrack: 0
-  shouldBePlaying: 1
+  shouldBePlaying: 0
 --- !u!1 &8966242763667083975
 GameObject:
   m_ObjectHideFlags: 0
