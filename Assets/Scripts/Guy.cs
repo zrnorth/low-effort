@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guy : MonoBehaviour
+public class Guy : Singleton<Guy>
 {
 
     [SerializeField]
