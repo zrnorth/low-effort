@@ -43,6 +43,7 @@ public class GameManager : Singleton<GameManager>
             string[] timeParts = timeRaw.Split(':');
             float time = System.Convert.ToSingle(timeParts[0]) * 60 + System.Convert.ToSingle(timeParts[1]) + noteTimeOffset;
             int note = System.Convert.ToInt32(chartData[1]);
+            string mode = chartData.Length >= 3 ? chartData[2] : "";
             Vector3 position = new Vector3(
                 noteXPositions[note],
                 0f,

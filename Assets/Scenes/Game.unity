@@ -164,8 +164,9 @@ MonoBehaviour:
   - -0.6
   - 0.6
   - 1.8
+  noteTimeOffset: 0.15
   notePrefab: {fileID: 3511236945474130092, guid: 892726de032dbb54e9ec7d387d7e1a7f, type: 3}
-  debugSetTimeElapsed: 12
+  debugSetTimeElapsed: 18
   debugExecuteTimer: 1
 --- !u!4 &314626765
 Transform:
