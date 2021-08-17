@@ -37,6 +37,10 @@ public class GameManager : Singleton<GameManager>
     private TMP_Text scoreLabel, scoreText;
 
     [SerializeField]
+
+    private TMP_Text amogus;
+
+    [SerializeField]
     private TMP_Text endOfGameScoreLabel, endOfGameScoreText;
 
     [SerializeField]
@@ -99,6 +103,14 @@ public class GameManager : Singleton<GameManager>
             );
             AudioManager.Instance.SetTime(debugSetTimeElapsed);
             debugExecuteTimer = false;
+        }
+
+        if (AudioManager.Instance.GetTime() > 17f) {
+            amogus.gameObject.SetActive(true);
+        }
+
+        if (AudioManager.Instance.GetTime() > 18f) {
+            amogus.gameObject.SetActive(false);
         }
 
         if (AudioManager.Instance.GetTime() > 60f * 3 && isGameEnded == false) {
