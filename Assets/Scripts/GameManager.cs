@@ -37,7 +37,9 @@ public class GameManager : Singleton<GameManager>
         billboard = noteBoard.GetComponent<MovingBillboard>();
 
         string[] chartLines = Regex.Split(chart.text, "\r\n|\r|\n");
-        foreach (string chartLine in chartLines) {
+        for (int i = 0; i < chartLines.Length; i++) {
+            Debug.Log(i);
+            string chartLine = chartLines[i];
             string[] chartData = Regex.Split(chartLine, "\\s");
             string timeRaw = chartData[0];
             string[] timeParts = timeRaw.Split(':');
