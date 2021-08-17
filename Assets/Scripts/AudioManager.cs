@@ -62,6 +62,10 @@ public class AudioManager : Singleton<AudioManager>
         shouldBePlaying = false;
     }
 
+    public void SetTrack(ActiveTrack track) {
+        activeTrack = track;
+    }
+
     private bool IsSourcePlaying() {
         return badAudioSource.isPlaying || goodAudioSource.isPlaying;
     }
