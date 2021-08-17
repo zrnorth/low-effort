@@ -51,6 +51,8 @@ public class GameManager : Singleton<GameManager>
 
     public int numMissed = 0;
 
+    private bool isGameEnded = false;
+
     void Start() {
         billboard = noteBoard.GetComponent<MovingBillboard>();
 
@@ -99,11 +101,12 @@ public class GameManager : Singleton<GameManager>
             debugExecuteTimer = false;
         }
 
-        if (AudioManager.Instance.GetTime() > 60f * 3) {
+        if (AudioManager.Instance.GetTime() > 60f * 3 && isGameEnded == false) {
             EndGame();
         }
     }
     void EndGame() {
+        isGameEnded = true;
         Destroy(scoreLabel.gameObject);
         Destroy(scoreText.gameObject);
 
