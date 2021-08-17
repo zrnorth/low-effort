@@ -1,0 +1,11 @@
+{
+  "formattingOptions": {
+    "useTabs": false,
+    "tabSize": 4,
+    "indentationSize": 4,
+    "newLineForElse": false,
+    "newLinesForBracesInControlBlocks": false,
+    "newLinesForBracesInMethods": false,
+    "newLinesForBracesInProperties": false
+  }
+}
