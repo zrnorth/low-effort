@@ -47,22 +47,30 @@ public class AudioManager : Singleton<AudioManager>
             goodAudioSource.volume = 1;
         }
 
-        if (IsPlaying() == true && shouldBePlaying == false) {
-            Stop();
-        } else if (IsPlaying() == false && shouldBePlaying == true) {
-            Play();
+        if (IsSourcePlaying() == true && shouldBePlaying == false) {
+            StopSource();
+        } else if (IsSourcePlaying() == false && shouldBePlaying == true) {
+            PlaySource();
         }
     }
 
-    public bool IsPlaying() {
+    public void Play() {
+        shouldBePlaying = true;
+    }
+
+    public void Stop() {
+        shouldBePlaying = false;
+    }
+
+    private bool IsSourcePlaying() {
         return badAudioSource.isPlaying || goodAudioSource.isPlaying;
     }
-    public void Play() {
+    private void PlaySource() {
         badAudioSource.Play();
         goodAudioSource.Play();
     }
 
-    public void Stop() {
+    private void StopSource() {
         badAudioSource.Stop();
         goodAudioSource.Stop();
         badAudioSource.time = 0;
