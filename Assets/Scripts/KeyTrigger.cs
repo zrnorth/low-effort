@@ -21,6 +21,8 @@ public class KeyTrigger : MonoBehaviour
 
             GameObject currentlyCollidingNote = currentlyCollidingNotes.Dequeue();
             Destroy(currentlyCollidingNote);
+
+            GameManager.Instance.ScorePoint();
         }
     }
 
@@ -29,11 +31,10 @@ public class KeyTrigger : MonoBehaviour
             currentlyCollidingNotes.Enqueue(other.gameObject);
         }
     }
+
     void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Note") {
             currentlyCollidingNotes.Dequeue();
         }
     }
-
-
 }

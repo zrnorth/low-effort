@@ -11,9 +11,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Green Key
       objectReference: {fileID: 0}
+    - target: {fileID: 2805265488908031493, guid: 279fdecd270fb5345af72ecfb1924dc3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d9c09b34c0d1dc49a60e9335954b69d, type: 2}
     - target: {fileID: 3217631962636499441, guid: 279fdecd270fb5345af72ecfb1924dc3, type: 3}
       propertyPath: triggerKey
-      value: 119
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4817647649433976711, guid: 279fdecd270fb5345af72ecfb1924dc3, type: 3}
       propertyPath: m_RootOrder

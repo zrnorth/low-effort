@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -31,7 +32,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private bool debugExecuteTimer = false;
 
+    [SerializeField]
+    private TMP_Text scoreText;
+
+    [SerializeField]
+    private GameObject[] hintLabels;
+
     private MovingBillboard billboard;
+
+    private int score = 0;
 
     void Start() {
         billboard = noteBoard.GetComponent<MovingBillboard>();
@@ -68,6 +77,17 @@ public class GameManager : Singleton<GameManager>
             );
             AudioManager.Instance.SetTime(debugSetTimeElapsed);
             debugExecuteTimer = false;
+        }
+    }
+
+    public void ScorePoint() {
+        score++;
+        scoreText.text = score.ToString();
+
+        if (score > 0) {
+            foreach (GameObject hintLabel in hintLabels) {
+                Destroy(hintLabel);
+            }
         }
     }
 }
