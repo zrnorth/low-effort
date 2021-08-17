@@ -49,6 +49,8 @@ public class GameManager : Singleton<GameManager>
 
     private int score = 0;
 
+    public int numMissed = 0;
+
     void Start() {
         billboard = noteBoard.GetComponent<MovingBillboard>();
 
@@ -93,6 +95,12 @@ public class GameManager : Singleton<GameManager>
 
     // Update is called once per frame
     void Update() {
+        if (numMissed > 2) {
+            AudioManager.Instance.SetTrack(ActiveTrack.Good);
+        } else {
+            AudioManager.Instance.SetTrack(ActiveTrack.Bad);
+        }
+
         if (debugExecuteTimer) {
             noteBoard.transform.position = new Vector3(
                 billboard.initialPosition.x + billboard.movement.x * debugSetTimeElapsed,
