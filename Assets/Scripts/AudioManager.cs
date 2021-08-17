@@ -66,6 +66,11 @@ public class AudioManager : Singleton<AudioManager>
         activeTrack = track;
     }
 
+    public void SetTime(float time) {
+        badAudioSource.time = time;
+        goodAudioSource.time = time;
+    }
+
     private bool IsSourcePlaying() {
         return badAudioSource.isPlaying || goodAudioSource.isPlaying;
     }
