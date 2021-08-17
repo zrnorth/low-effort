@@ -6,34 +6,32 @@ using UnityEngine;
 public class KeyTrigger : MonoBehaviour
 {
     public KeyCode triggerKey;
-    private GameObject currentlyCollidingNote = null;
+    private Queue<GameObject> currentlyCollidingNotes;
 
     private ParticleSystem fxOnTrigger;
 
     void Start() {
+        currentlyCollidingNotes = new Queue<GameObject>();
         fxOnTrigger = GetComponent<ParticleSystem>();
     }
 
     void Update() {
-        if (currentlyCollidingNote != null && Input.GetKeyDown(triggerKey)) {
+        if (currentlyCollidingNotes.Count > 0 && Input.GetKeyDown(triggerKey)) {
             fxOnTrigger.Play();
+
+            GameObject currentlyCollidingNote = currentlyCollidingNotes.Dequeue();
             Destroy(currentlyCollidingNote);
-            currentlyCollidingNote = null;
         }
     }
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Note") {
-            if (currentlyCollidingNote != null) {
-                Debug.LogError("Overlapping notes");
-                return; // Don't thrash
-            }
-            currentlyCollidingNote = other.gameObject;
+            currentlyCollidingNotes.Enqueue(other.gameObject);
         }
     }
     void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Note") {
-            currentlyCollidingNote = null;
+            currentlyCollidingNotes.Dequeue();
         }
     }
 
