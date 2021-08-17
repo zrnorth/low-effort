@@ -572,17 +572,18 @@ MonoBehaviour:
   notePrefab: {fileID: 3511236945474130092, guid: 892726de032dbb54e9ec7d387d7e1a7f, type: 3}
   debugSetTimeElapsed: 0
   debugExecuteTimer: 1
-  scoreLabel: {fileID: 0}
+  scoreLabel: {fileID: 411737604}
   scoreText: {fileID: 112327566}
-  endOfGameScoreLabel: {fileID: 0}
-  endOfGameScoreText: {fileID: 0}
-  playAgainButton: {fileID: 0}
+  endOfGameScoreLabel: {fileID: 535018870}
+  endOfGameScoreText: {fileID: 664943611}
+  playAgainButton: {fileID: 845484594}
   hintLabels:
   - {fileID: 432077330}
   - {fileID: 4852095}
   - {fileID: 1620719436}
   - {fileID: 102273606}
   - {fileID: 1699176508}
+  numMissed: 0
 --- !u!4 &314626765
 Transform:
   m_ObjectHideFlags: 0
