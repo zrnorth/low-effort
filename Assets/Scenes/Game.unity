@@ -570,7 +570,7 @@ MonoBehaviour:
   - 1.8
   noteTimeOffset: 0.15
   notePrefab: {fileID: 3511236945474130092, guid: 892726de032dbb54e9ec7d387d7e1a7f, type: 3}
-  debugSetTimeElapsed: 119
+  debugSetTimeElapsed: 0
   debugExecuteTimer: 1
   scoreText: {fileID: 112327566}
   hintLabels:
