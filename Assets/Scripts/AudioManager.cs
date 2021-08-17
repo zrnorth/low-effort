@@ -71,6 +71,10 @@ public class AudioManager : Singleton<AudioManager>
         goodAudioSource.time = time;
     }
 
+    public float GetTime() {
+        return badAudioSource.time;
+    }
+
     private bool IsSourcePlaying() {
         return badAudioSource.isPlaying || goodAudioSource.isPlaying;
     }

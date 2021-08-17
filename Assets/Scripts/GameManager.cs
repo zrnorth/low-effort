@@ -79,18 +79,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         AudioManager.Instance.Play();
-        StartCoroutine("EndOfGame");
-    }
-
-    IEnumerable EndOfGame() {
-        yield return new WaitForSeconds(185f); // Lol
-        Destroy(scoreLabel.gameObject);
-        Destroy(scoreText.gameObject);
-
-        endOfGameScoreLabel.gameObject.SetActive(true);
-        endOfGameScoreText.text = score.ToString();
-        endOfGameScoreLabel.gameObject.SetActive(true);
-        playAgainButton.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -110,7 +98,21 @@ public class GameManager : Singleton<GameManager>
             AudioManager.Instance.SetTime(debugSetTimeElapsed);
             debugExecuteTimer = false;
         }
+
+        if (AudioManager.Instance.GetTime() > 60f * 3) {
+            EndGame();
+        }
     }
+    void EndGame() {
+        Destroy(scoreLabel.gameObject);
+        Destroy(scoreText.gameObject);
+
+        endOfGameScoreLabel.gameObject.SetActive(true);
+        endOfGameScoreText.text = score.ToString();
+        endOfGameScoreText.gameObject.SetActive(true);
+        playAgainButton.gameObject.SetActive(true);
+    }
+
 
     public void ScorePoint() {
         score++;
