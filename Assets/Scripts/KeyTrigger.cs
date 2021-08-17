@@ -17,16 +17,16 @@ public class KeyTrigger : MonoBehaviour
 
     void Update() {
         if (currentlyCollidingNotes.Count > 0 && Input.GetKeyDown(triggerKey)) {
+            GameManager.Instance.ScorePoint();
+            GameManager.Instance.numMissed = 0;
             fxOnTrigger.Play();
 
             GameObject currentlyCollidingNote = currentlyCollidingNotes.Dequeue();
-            bool isIntense = currentlyCollidingNote.GetComponent<Note>().isIntense;
+            Note note = currentlyCollidingNote.GetComponent<Note>();
             Guy guy = Guy.Instance;
+            guy.SetIntenseMode(note && note.isIntense);
             guy.RandomizePose();
-            guy.SetIntenseMode(isIntense);
             Destroy(currentlyCollidingNote);
-
-            GameManager.Instance.ScorePoint();
         }
     }
 
